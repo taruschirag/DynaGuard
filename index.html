@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Guardian Models — Realtime Moderation with User-Defined Policies</title>
+  <meta name="description" content="Project page for Dynamic Guardian Models (DynaGuard) and the Compliance dataset: realtime content moderation with user-defined policies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --card: #11131a;
+      --muted: #b6bcc7;
+      --text: #e7ecf3;
+      --accent: #7dd3fc; /* sky-300 */
+      --accent-2: #c4b5fd; /* violet-300 */
+    }
+    * { box-sizing: border-box }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 20px }
+    header.hero { padding: 64px 0 24px; text-align: center }
+    header .title { font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; }
+    .subtitle { margin-top: 10px; font-weight: 500; color: var(--muted) }
+    .pillbar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px }
+    .pill { background: linear-gradient(135deg, rgba(125,211,252,.15), rgba(196,181,253,.15)); border: 1px solid rgba(255,255,255,.08); color: var(--text); padding: 10px 14px; border-radius: 999px; font-size: 14px }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; background: var(--card); border: 1px solid rgba(255,255,255,.08); color: var(--text); font-weight: 600 }
+    .btn:hover { transform: translateY(-1px); transition: .15s ease; text-decoration: none }
+
+    main { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 28px }
+    section.card { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    section.card h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.01em }
+    p, li { line-height: 1.6; color: #dbe4ee }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 18px }
+    @media (min-width: 860px) {
+      main { grid-template-columns: 1.1fr .9fr }
+    }
+    .figure { border: 1px dashed rgba(255,255,255,.12); background: rgba(255,255,255,.02); border-radius: 14px; padding: 14px; text-align: center; font-size: 14px; color: var(--muted) }
+    .figure .box { height: 220px; border-radius: 10px; background: linear-gradient(135deg, rgba(125,211,252,.06), rgba(196,181,253,.06)); display: grid; place-items: center; font-size: 13px; }
+    code.inline { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); padding: 2px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace }
+
+    details { background: #0f1218; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px 14px }
+    details summary { cursor: pointer; font-weight: 700 }
+
+    footer { text-align: center; color: var(--muted); padding: 28px 0; font-size: 14px }
+    .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin: 8px 0 18px }
+    .kicker { color: var(--accent-2); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 12px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">Project Page</div>
+      <h1 class="title">Dynamic Guardian Models: Realtime Content Moderation with User‑Defined Policies</h1>
+      <div class="subtitle">
+        Monte Hoover · Vatsal Baherwani · Neel Jain · Khalid Saifullah · Joseph Vincent · <strong>Chirag Jain</strong> ·
+        Melissa Kazemi Rad · C. Bayan Bruss · Ashwinee Panda · Tom Goldstein
+      </div>
+      <div class="pillbar" aria-label="affiliations">
+        <span class="pill">University of Maryland</span>
+        <span class="pill">Capital One</span>
+      </div>
+      <div class="buttons">
+        <a class="btn" href="https://openreview.net/pdf?id=TJxuQ2HST7" target="_blank" rel="noopener">📄 PDF</a>
+        <a class="btn" href="https://openreview.net/forum?id=TJxuQ2HST7" target="_blank" rel="noopener">💬 OpenReview</a>
+        <!-- Optional: add GitHub/Models buttons when available -->
+      </div>
+    </header>
+
+    <main>
+      <section class="card" style="grid-column: 1 / -1">
+        <h2>Abstract</h2>
+        <p>
+          We introduce <strong>dynamic guardian models</strong>—specialized classifiers that evaluate conversations against
+          <em>user‑defined policies</em> at runtime. Unlike static safety taxonomies, guardians here can adapt to
+          application‑specific rules and provide natural‑language explanations that help an assistant recover from
+          violations. Experiments show these models match traditional guardians on static harms while approaching
+          the rule‑violation performance of large reasoning models at a fraction of the time and cost.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Why Dynamic Guardians?</h2>
+        <ul>
+          <li><strong>Dynamic:</strong> Accept arbitrary, user‑defined rules (policies) instead of fixed harm categories.</li>
+          <li><strong>Accurate:</strong> Preserve strong performance on standard safety ontologies.</li>
+          <li><strong>Interpretable:</strong> Output actionable, natural‑language explanations for any rule violations.</li>
+          <li><strong>Fast option:</strong> Provide a low‑latency classification path without unnecessary reasoning overhead.</li>
+        </ul>
+        <div class="sep"></div>
+        <div class="figure" role="img" aria-label="Conceptual diagram placeholder">
+          <div class="box">Figure placeholder — guardian model protecting an assistant using a policy at runtime</div>
+          <div style="margin-top:8px">Figure 1 (concept): A guardian model steers assistant behavior using user‑defined policies.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>The <em>Compliance</em> Dataset</h2>
+        <p>
+          To train and evaluate dynamic guardians, we release <strong>Compliance</strong>, a dataset of
+          <strong>60K</strong> multi‑turn dialogues paired with diverse guardrail policies. Policies span categories beyond
+          traditional toxicity (e.g., <em>User Experience, Regulatory Compliance, Content Controls, Transactions, Agentic Tasks</em>),
+          enabling robust generalization to domain‑specific rules.
+        </p>
+        <ul>
+          <li>Policies are built from a bank of thousands of high‑clarity rules, with both generic and domain‑specific options.</li>
+          <li>Includes challenging multi‑hop and adversarial jailbreak scenarios.</li>
+          <li>Evaluation set contains out‑of‑distribution (OOD) policies to test true generalization.</li>
+        </ul>
+        <div class="figure" role="img" aria-label="Policy categories placeholder">
+          <div class="box">Figure placeholder — policy violation categories visualization</div>
+          <div style="margin-top:8px">Figure 2: Example policy‑violation categories represented in <em>Compliance</em>.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>DynaGuard Model</h2>
+        <p>
+          <strong>DynaGuard</strong> is a guardian model fine‑tuned to enforce arbitrary policies and supply concise justifications.
+          It supports a <em>dual‑mode</em> interface: (1) a lightweight classification path and (2) a reasoning‑augmented
+          path that emits explanations the assistant can use to self‑correct.
+        </p>
+        <ul>
+          <li>Outperforms prior dedicated guardian models on user‑defined harms.</li>
+          <li>Maintains strong results on standard safety ontologies.</li>
+          <li>Offers low‑latency inference and controllable sensitivity (e.g., via thresholds).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Selected Results</h2>
+        <ul>
+          <li><strong>Frontier‑level accuracy, smaller footprint:</strong> An open‑source ~4B parameter DynaGuard model achieves
+            high accuracy on <em>Compliance</em>, surpassing a general‑purpose API model baseline (e.g., GPT‑4o) while
+            being orders of magnitude cheaper and faster.</li>
+          <li><strong>Hard benchmarks:</strong> Models trained on <em>Compliance</em> generalize to OOD policies and multi‑hop cases where
+            earlier guardian approaches struggle.</li>
+        </ul>
+        <div class="figure" role="img" aria-label="Results charts placeholder">
+          <div class="box">Figure placeholder — accuracy vs. latency and example policy‑violation detections</div>
+          <div style="margin-top:8px">Figure 3: Illustrative performance—policy‑violation F1 and latency comparisons.</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: 1 / -1">
+        <h2>Reference</h2>
+        <details>
+          <summary>BibTeX</summary>
+<pre>@inproceedings{dynamic_guardian_models_2025,
+  title     = {Dynamic Guardian Models: Realtime Content Moderation with User-Defined Policies},
+  author    = {Hoover, Monte and Baherwani, Vatsal and Jain, Neel and Saifullah, Khalid and Vincent, Joseph and Jain, Chirag and Kazemi Rad, Melissa and Bruss, C. Bayan and Panda, Ashwinee and Goldstein, Tom},
+  year      = {2025},
+  booktitle = {OpenReview Preprint},
+  url       = {https://openreview.net/forum?id=TJxuQ2HST7}
+}</pre>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <div>© 2025 Authors. This page is a simple, single‑file site inspired by minimal academic project pages.</div>
+    </footer>
+  </div>
+</body>
+</html>
