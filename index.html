@@ -64,11 +64,13 @@
       border-bottom-color: var(--accent-2);
       text-decoration: none;
     }
-    .author-link.capital-one { 
-      color: #e6a53a;
-    }
-    .author-link.capital-one:hover { 
-      color: #ffb347;
+
+    /* Subscript styling for affiliations */
+    .affiliation-sup {
+      font-size: 0.7em;
+      vertical-align: super;
+      color: var(--accent);
+      font-weight: 600;
     }
 
     /* Interactive elements */
@@ -160,12 +162,12 @@
       <div class="kicker">Project Page</div>
       <h1 class="title">Dynamic Guardian Models: Realtime Content Moderation with User‑Defined Policies</h1>
       <div class="subtitle">
-        <a href="#" class="author-link">Monte Hoover</a> · <a href="#" class="author-link">Vatsal Baherwani</a> · <a href="#" class="author-link">Neel Jain</a> · <a href="#" class="author-link">Khalid Saifullah</a> · <a href="#" class="author-link">Joseph Vincent</a> · <strong><a href="#" class="author-link">Chirag Jain</a></strong> ·
-        <a href="#" class="author-link capital-one">Melissa Kazemi Rad</a> · <a href="#" class="author-link capital-one">C. Bayan Bruss</a> · <a href="#" class="author-link">Ashwinee Panda</a> · <a href="#" class="author-link">Tom Goldstein</a>
+        <a href="#" class="author-link">Monte Hoover<sup class="affiliation-sup">1</sup></a> · <a href="#" class="author-link">Vatsal Baherwani<sup class="affiliation-sup">1</sup></a> · <a href="#" class="author-link">Neel Jain<sup class="affiliation-sup">1</sup></a> · <a href="#" class="author-link">Khalid Saifullah<sup class="affiliation-sup">1</sup></a> · <a href="#" class="author-link">Joseph Vincent<sup class="affiliation-sup">1</sup></a> · <strong><a href="#" class="author-link">Chirag Jain<sup class="affiliation-sup">1</sup></a></strong> ·
+        <a href="#" class="author-link">Melissa Kazemi Rad<sup class="affiliation-sup">2</sup></a> · <a href="#" class="author-link">C. Bayan Bruss<sup class="affiliation-sup">2</sup></a> · <a href="#" class="author-link">Ashwinee Panda<sup class="affiliation-sup">1</sup></a> · <a href="#" class="author-link">Tom Goldstein<sup class="affiliation-sup">1</sup></a>
       </div>
       <div class="pillbar" aria-label="affiliations">
-        <span class="pill">University of Maryland</span>
-        <span class="pill">Capital One</span>
+        <span class="pill"><sup>1</sup> University of Maryland</span>
+        <span class="pill"><sup>2</sup> Capital One</span>
       </div>
       <div class="buttons">
         <a class="btn" href="https://openreview.net/pdf?id=TJxuQ2HST7" target="_blank" rel="noopener">📄 PDF</a>
