@@ -19,8 +19,8 @@
     }
     * { box-sizing: border-box }
     html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    a { color: var(--accent); text-decoration: none }
-    a:hover { text-decoration: underline }
+    a { color: var(--accent); text-decoration: none; transition: all 0.2s ease }
+    a:hover { text-decoration: underline; color: var(--accent-2) }
     .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 20px }
     header.hero { padding: 64px 0 24px; text-align: center }
     header .title { font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; }
@@ -28,11 +28,13 @@
     .pillbar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px }
     .pill { background: linear-gradient(135deg, rgba(125,211,252,.15), rgba(196,181,253,.15)); border: 1px solid rgba(255,255,255,.08); color: var(--text); padding: 10px 14px; border-radius: 999px; font-size: 14px }
     .buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; background: var(--card); border: 1px solid rgba(255,255,255,.08); color: var(--text); font-weight: 600 }
-    .btn:hover { transform: translateY(-1px); transition: .15s ease; text-decoration: none }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; background: var(--card); border: 1px solid rgba(255,255,255,.08); color: var(--text); font-weight: 600; cursor: pointer }
+    .btn:hover { transform: translateY(-2px); transition: .15s ease; text-decoration: none; box-shadow: 0 8px 25px rgba(0,0,0,.3) }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--bg) }
 
     main { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 28px }
-    section.card { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    section.card { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform 0.2s ease, box-shadow 0.2s ease }
+    section.card:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(0,0,0,.35) }
     section.card h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.01em }
     p, li { line-height: 1.6; color: #dbe4ee }
     .grid { display: grid; grid-template-columns: 1fr; gap: 18px }
@@ -49,6 +51,107 @@
     footer { text-align: center; color: var(--muted); padding: 28px 0; font-size: 14px }
     .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin: 8px 0 18px }
     .kicker { color: var(--accent-2); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 12px }
+
+    /* Author name styling */
+    .author-link { 
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      transition: all 0.2s ease;
+    }
+    .author-link:hover { 
+      color: var(--accent);
+      border-bottom-color: var(--accent-2);
+      text-decoration: none;
+    }
+    .author-link.capital-one { 
+      color: #e6a53a;
+    }
+    .author-link.capital-one:hover { 
+      color: #ffb347;
+    }
+
+    /* Interactive elements */
+    .interactive-demo { 
+      background: linear-gradient(135deg, rgba(125,211,252,.05), rgba(196,181,253,.05));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .demo-button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--bg);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .demo-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(125,211,252,.3);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .stat-card:hover {
+      background: rgba(255,255,255,.05);
+      transform: translateY(-2px);
+    }
+    .stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .accordion {
+      margin-top: 20px;
+    }
+    .accordion-item {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .accordion-header:hover {
+      background: rgba(255,255,255,.05);
+    }
+    .accordion-content {
+      padding: 0 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 200px;
+      padding: 16px;
+    }
   </style>
 </head>
 <body>
@@ -57,8 +160,8 @@
       <div class="kicker">Project Page</div>
       <h1 class="title">Dynamic Guardian Models: Realtime Content Moderation with User‑Defined Policies</h1>
       <div class="subtitle">
-        Monte Hoover · Vatsal Baherwani · Neel Jain · Khalid Saifullah · Joseph Vincent · <strong>Chirag Jain</strong> ·
-        Melissa Kazemi Rad · C. Bayan Bruss · Ashwinee Panda · Tom Goldstein
+        <a href="#" class="author-link">Monte Hoover</a> · <a href="#" class="author-link">Vatsal Baherwani</a> · <a href="#" class="author-link">Neel Jain</a> · <a href="#" class="author-link">Khalid Saifullah</a> · <a href="#" class="author-link">Joseph Vincent</a> · <strong><a href="#" class="author-link">Chirag Jain</a></strong> ·
+        <a href="#" class="author-link capital-one">Melissa Kazemi Rad</a> · <a href="#" class="author-link capital-one">C. Bayan Bruss</a> · <a href="#" class="author-link">Ashwinee Panda</a> · <a href="#" class="author-link">Tom Goldstein</a>
       </div>
       <div class="pillbar" aria-label="affiliations">
         <span class="pill">University of Maryland</span>
@@ -67,7 +170,7 @@
       <div class="buttons">
         <a class="btn" href="https://openreview.net/pdf?id=TJxuQ2HST7" target="_blank" rel="noopener">📄 PDF</a>
         <a class="btn" href="https://openreview.net/forum?id=TJxuQ2HST7" target="_blank" rel="noopener">💬 OpenReview</a>
-        <!-- Optional: add GitHub/Models buttons when available -->
+        <a class="btn primary" href="https://huggingface.co/spaces/tomg-group-umd/DynaGuard" target="_blank" rel="noopener">🤗 Try DynaGuard</a>
       </div>
     </header>
 
@@ -81,6 +184,14 @@
           violations. Experiments show these models match traditional guardians on static harms while approaching
           the rule‑violation performance of large reasoning models at a fraction of the time and cost.
         </p>
+        
+        <div class="interactive-demo">
+          <h3>Try it yourself!</h3>
+          <p>Experience DynaGuard's real-time policy enforcement with custom rules.</p>
+          <button class="demo-button" onclick="window.open('https://huggingface.co/spaces/tomg-group-umd/DynaGuard', '_blank')">
+            Launch Interactive Demo
+          </button>
+        </div>
       </section>
 
       <section class="card">
@@ -106,11 +217,39 @@
           traditional toxicity (e.g., <em>User Experience, Regulatory Compliance, Content Controls, Transactions, Agentic Tasks</em>),
           enabling robust generalization to domain‑specific rules.
         </p>
-        <ul>
-          <li>Policies are built from a bank of thousands of high‑clarity rules, with both generic and domain‑specific options.</li>
-          <li>Includes challenging multi‑hop and adversarial jailbreak scenarios.</li>
-          <li>Evaluation set contains out‑of‑distribution (OOD) policies to test true generalization.</li>
-        </ul>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">60K</div>
+            <div class="stat-label">Multi-turn dialogues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Policy categories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1000s</div>
+            <div class="stat-label">High-clarity rules</div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Policy Categories ▼
+            </div>
+            <div class="accordion-content">
+              <ul>
+                <li><strong>User Experience:</strong> Rules ensuring positive interactions</li>
+                <li><strong>Regulatory Compliance:</strong> Legal and regulatory requirements</li>
+                <li><strong>Content Controls:</strong> Content filtering and restrictions</li>
+                <li><strong>Transactions:</strong> Financial and commercial guidelines</li>
+                <li><strong>Agentic Tasks:</strong> AI agent behavior controls</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div class="figure" role="img" aria-label="Policy categories placeholder">
           <div class="box">Figure placeholder — policy violation categories visualization</div>
           <div style="margin-top:8px">Figure 2: Example policy‑violation categories represented in <em>Compliance</em>.</div>
@@ -124,22 +263,44 @@
           It supports a <em>dual‑mode</em> interface: (1) a lightweight classification path and (2) a reasoning‑augmented
           path that emits explanations the assistant can use to self‑correct.
         </p>
-        <ul>
-          <li>Outperforms prior dedicated guardian models on user‑defined harms.</li>
-          <li>Maintains strong results on standard safety ontologies.</li>
-          <li>Offers low‑latency inference and controllable sensitivity (e.g., via thresholds).</li>
-        </ul>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Key Features ▼
+            </div>
+            <div class="accordion-content">
+              <ul>
+                <li>Outperforms prior dedicated guardian models on user‑defined harms</li>
+                <li>Maintains strong results on standard safety ontologies</li>
+                <li>Offers low‑latency inference and controllable sensitivity</li>
+                <li>Provides natural language explanations for violations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
         <h2>Selected Results</h2>
-        <ul>
-          <li><strong>Frontier‑level accuracy, smaller footprint:</strong> An open‑source ~4B parameter DynaGuard model achieves
-            high accuracy on <em>Compliance</em>, surpassing a general‑purpose API model baseline (e.g., GPT‑4o) while
-            being orders of magnitude cheaper and faster.</li>
-          <li><strong>Hard benchmarks:</strong> Models trained on <em>Compliance</em> generalize to OOD policies and multi‑hop cases where
-            earlier guardian approaches struggle.</li>
-        </ul>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Performance Highlights ▼
+            </div>
+            <div class="accordion-content">
+              <ul>
+                <li><strong>Frontier‑level accuracy, smaller footprint:</strong> An open‑source ~4B parameter DynaGuard model achieves
+                  high accuracy on <em>Compliance</em>, surpassing a general‑purpose API model baseline (e.g., GPT‑4o) while
+                  being orders of magnitude cheaper and faster.</li>
+                <li><strong>Hard benchmarks:</strong> Models trained on <em>Compliance</em> generalize to OOD policies and multi‑hop cases where
+                  earlier guardian approaches struggle.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div class="figure" role="img" aria-label="Results charts placeholder">
           <div class="box">Figure placeholder — accuracy vs. latency and example policy‑violation detections</div>
           <div style="margin-top:8px">Figure 3: Illustrative performance—policy‑violation F1 and latency comparisons.</div>
@@ -162,8 +323,61 @@
     </main>
 
     <footer>
-      <div>© 2025 Authors. This page is a simple, single‑file site inspired by minimal academic project pages.</div>
+      <div>© 2025 Authors. This page is a simple‑file site inspired by minimal academic project pages.</div>
     </footer>
   </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const content = item.querySelector('.accordion-content');
+      
+      // Toggle active state
+      item.classList.toggle('active');
+      
+      // Update arrow
+      header.innerHTML = item.classList.contains('active') 
+        ? header.innerHTML.replace('▼', '▲')
+        : header.innerHTML.replace('▲', '▼');
+    }
+
+    // Add smooth scrolling and hover effects
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add interactive stats animation
+    function animateStats() {
+      const stats = document.querySelectorAll('.stat-number');
+      stats.forEach(stat => {
+        const finalValue = stat.textContent;
+        stat.textContent = '0';
+        
+        setTimeout(() => {
+          stat.style.transition = 'all 1s ease';
+          stat.textContent = finalValue;
+        }, 500);
+      });
+    }
+
+    // Trigger stats animation when cards come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.querySelector('.stats-grid')) {
+          animateStats();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
