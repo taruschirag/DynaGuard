@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DynaGuard: A Dynamic Guardrail Model With User-Defined Policies.</title>
+  <title>DynaGuard: A Dynamic Guardrail Model With
+User-Defined Policies.</title>
   <meta name="description" content="Project page for Dynamic Guardian Models (DynaGuard) and the Compliance dataset: realtime content moderation with user-defined policies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,11 +181,16 @@
       <section class="card" style="grid-column: 1 / -1">
         <h2>Abstract</h2>
         <p>
-          We introduce <strong>dynamic guardian models</strong>—specialized classifiers that evaluate conversations against
-          <em>user‑defined policies</em> at runtime. Unlike static safety taxonomies, guardians here can adapt to
-          application‑specific rules and provide natural‑language explanations that help an assistant recover from
-          violations. Experiments show these models match traditional guardians on static harms while approaching
-          the rule‑violation performance of large reasoning models at a fraction of the time and cost.
+          Guardian models are used to supervise and moderate the outputs of user-facing
+chatbots, enforcing guardrails and detecting bad behaviors. Standard guardian
+models like LlamaGuard detect predefined, static categories of harms. We propose
+dynamic guardian models that evaluate text based on user-defined policies, making
+them useful for different application domains that are not addressed by standard
+guardian models. Our dynamic guardian models can be used for fast detection of
+policy violations or with chain-of-thought reasoning that articulates and justifies
+the model outputs. Our dynamic guardian models match static models in detection
+accuracy for static harm categories while identifying violations of free-form policies
+with accuracy comparable to frontier reasoning models in a fraction of the time.
         </p>
         
         <div class="interactive-demo">
